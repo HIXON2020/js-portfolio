@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My 1st Application</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+　<script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/about.css">
+</head>
+<body>
+  <h1>MY UTILITY APP</h1>
+  <div class="container">
+    <main>
+      <!-- タブセクション -->
+      <p>たまに必要になる換算や計算を、JavaScriptやライブラリを使ってまとめてみました。</p><br>
+      <section class="tab">
+        <ul class="tab__label">
+          <li><a href="#"  data-id="tab__length" class="active">LENGTH<br><span>長さ</span></a></li>
+          <li><a href="#" data-id="tab__weight">WIGHT<br><span>重量</span></a></li>
+          <li><a href="#" data-id="tab__calender">TIME<br><span>年号＆タイマー</span></a></li>
+          <li><a href="#" data-id="tab__keycode"> CODE<br><span>16進数</span></a></li>
+          <li><a href="#" data-id="tab__bmi">BMI<br><span>肥満度チェック</span></a></li>
+          <li><a href="#" data-id="tab__todo" >CHART<br><span>統計</span></a></li>
+        </ul>
+        <!-- LENGTHセクション -->
+        <section class="tab__content active" id="tab__length">
+          <h3>長さ・距離　換算App</h3>
+          <p>日常によく使う単位のみの変換アプリです。</p>
+          <div class="inner" id="length_form">
+            <!-- 左側フォーム -->
+            <form name="form1" id="form1">
+              <div class="card card1">
+                <div class="card-header">
+                  インチ<input type="number" name="inch" placeholder="1 inch">inch
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">
+                    センチ<input type="number" name="cm" placeholder="2.54 cm">cm
+                  </li>
+                  <li class="list-group-item">
+                    メートル<input type="number" name="m" placeholder="0.0254 m">m
+                  </li>
+                  <li class="list-group-item">
+                    フィート<input type="number" name="ft" placeholder="0.0833333 ft">feet
+                  </li>
+                  <li class="list-group-item">
+                    ヤード<input type="number" name="yd" placeholder="0.0277778 yd">yard
+                  </li>
+                </ul>
+              </div>
+              <button type="button" class="btn btn-primary itoc_btn" onclick="ItocCalc()">計算</button> 
+            </form>
+            <!-- フォーム右側 -->
+            <form name="form2" id="form2">
+              <div class="card card2">
+                <div class="card-header">
+                  センチ<input type="number" name="cm2" placeholder="1 cm">cm
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">
+                    ミリ<input type="number" name="mm" placeholder="10 mm">mm
+                  </li>
+                  <li class="list-group-item">
+                    メートル<input type="text" name="m" placeholder="0.01 m">m
+                  </li>
+                  <li class="list-group-item">
+                    インチ<input type="number" name="inch" placeholder="0.393701 ft">inch
+                  </li>
+                  <li class="list-group-item">
+                    フィート<input type="number" name="ft" placeholder="0.0328084 ft">ft
+                  </li>
+                </ul>
+              </div>
+              <button type="button" class="btn btn-primary ctoi_btn" onclick="CtoiCalc()">計算</button> 
+            </form>
+          </div>
+        </section>
+        <!-- WEIGHTセクション -->
+        <section class="tab__content" id="tab__weight">
+          <h3>重さの相互変換</h3>
+          <p>g,kg,lb(ポンド),oz(オンス)をそれぞれ変換します。</p>
+          <div class="inner weight_inner">
+            <div class="input-group weight_input">
+              <input type="number" class="form-control" aria-label="Weight input with dropdown button" id="weight">
+              <select class="custom-select" id="inputGroupSelect01">
+                <option value="g" selected>g(グラム)</option>
+                <option value="kg">kg(キログラム)</option>
+                <option value="lb">lb(ポンド)</option>
+                <option value="oz">oz(オンス)</option>
+              </select>
+            </div>
+            <i class="fas fa-angle-double-right" id="calc_weight" onclick="calcWeight()"></i>
+            <div class="weight_output">
+              <div class="input-group mb-3">
+                <input type="number" class="form-control" placeholder="gram" id="gram">
+                <div class="input-group-append">
+                  <span class="input-group-text">g</span>
+                </div>
+              </div>
+              <div class="input-group mb-3">
+                <input type="number" class="form-control" placeholder="kilo" id="kilo">
+                <div class="input-group-append">
+                  <span class="input-group-text">kg</span>
+                </div>
+              </div>
+              <div class="input-group mb-3">
+                <input type="number" class="form-control" placeholder="pound" id="pound">
+                <div class="input-group-append">
+                  <span class="input-group-text">lb</span>
+                </div>
+              </div>
+              <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="ounce" id="ounce">
+                <div class="input-group-append">
+                  <span class="input-group-text">oz</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            1 ポンド（lb）＝ 16（oz）= 450 (g)<br>
+            1 オンス（oz）＝ 0.0625 (lb) = 28.34 (g)
+          </div>
+        </section>
+        <!-- CALENDERセクション -->
+        <section class="tab__content" id="tab__calender">
+          <h3>年号</h3>
+          <p>日時に関する便利ツールをまとめました。単位とか年号とか、もう世界統一でよろしくお願いします。</p>
+          <div class="inner date-inner">
+            <div class="era">
+              <div class="input-group mb-3 seireki">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">西暦</span>
+                </div>
+                <input type="date" class="form-control" id="seireki">
+              </div>
+              <button type="button" class="btn btn-primary" onclick="toWareki()">変換</button>
+              <div class="input-group mb-3 wareki">
+                <input type="text" class="form-control" id="wareki">
+                <div class="input-group-append">
+                  <span class="input-group-text" id="basic-addon2">和暦</span>
+                </div>
+              </div>
+            </div>
+            <table class="era-table">
+              <tr><th>年号(元号)</th><th>開始</th><th>年数</th></>
+              <tr><td>令和</td><td>2019/05/01</td><td>-</td></tr>
+              <tr><td>平成</td><td>1989/01/08</td><td>31</td></tr>
+              <tr><td>昭和</td><td>1926/12/25</td><td>64</td></tr>
+              <tr><td>大正</td><td>1912/07/30</td><td>15</td></tr>
+              <tr><td>明治</td><td>1868/01/25</td><td>45</td></tr>
+            </table>
+            <div class="timer">
+              <h3><i class="fas fa-hourglass-half"></i> タイマー</h3>
+              <div class="card">
+                <div class="card-header timer-header">
+                  <h4>大阪万博まであと</h4>
+                </div>
+                <div class="card-body timer-body">
+                  <span id="expo"></span>日
+                </div>
+              </div>
+              <!-- マイタイマー -->
+              <div class="card my-timer">
+                <div class="card-header">
+                  <h4>あなたのGOAL<span id="my-set-timer"></span>まであと</h4>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item" id="my-timer-result"></li>
+                  <li class="list-group-item">
+                    <input type="text" id="userYear" class="my-timer-date">年
+                    <input type="text" id="userMonth" class="my-timer-date">月
+                    <input type="text" id="userDate" class="my-timer-date">日
+                    <input type="button" value="SET" onclick="myCountdown();">
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- KEYCODEセクション -->
+        <section class="tab__content" id="tab__keycode">
+          <h3>２進数・10進数・16進数の相互変換</h3>
+          <p>数値を入力して、右側の進数部分をクリックしてください。</p>
+          <div class="inner">
+            <form name="form3" id="form3" class="form-row code2">
+              <div class="form-group col-md-6">
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" placeholder="2" id="two" name="input2">
+                  <div class="input-group-append">
+                    <span class="input-group-text" onclick="binToInt1()">2 進数</span>
+                  </div>
+                </div>
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" placeholder="10" id="ten" name="input10">
+                  <div class="input-group-append">
+                    <span class="input-group-text" onclick="binToInt2()">10進数</span>
+                  </div>
+                </div>
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" placeholder="16" id="sixteen" name="input16">
+                  <div class="input-group-append">
+                    <span class="input-group-text" onclick="binToInt3()">16進数</span>
+                  </div>
+                </div>
+              </div>
+              <!-- Unicode 変換 -->
+              <div class="input-group unicode col-sm-10">
+                <input type="text" class="form-control" placeholder="♡" id="input_moji" name="moji">
+                <div class="input-group-append">
+                  <span class="input-group-text" id="" onclick="binToUni()">絵文字</span>
+                </div>
+                <i class="fas fa-angle-double-right"></i>
+                <input type="text" class="form-control" placeholder="10進数" id="moji_code10">
+                <input type="text" class="form-control" placeholder="16進数" id="moji_code16">
+              </div>
+            </form>
+            <dl>
+              <dt>2進数(Binary Number)</dt>
+              <dd>コンピュータの世界では，ON・OFFの状態を 0 と 1 の電気信号に変換し、プログラムを実行しています。</dd>
+              <dt>10進数(Decimal Number)</dt>
+              <dd>我々が普段利用しているのが10進数で、0～9の10個の数字を使って数を表しています。<br>&amp;#8451; ==> ℃ 、&amp;#9829; ==> ♥ 　のように「&#」10進「;」の形式で指定します</dd>
+              <dt>16進数(Hexadecimal Numbre)</dt>
+              <dd>２進数を人間がわかりやすくするために、16進数に変換します。16進数は２進数を４つづつに区切って変換しています。<br>&amp;#x2103; ==> ℃ 、&amp;#x2665; ==> ♥ 　のように「&#x」16進「;」の形式で指定します</dd>
+            </dl>
+          </div>
+        </section>
+        <!-- BMIセクション -->
+        <section class="tab__content" id="tab__bmi">
+          <h3>標準体重・肥満度チェック</h3>
+          <h4>BMIとは？</h4>
+          <p>健康診断で、肥満を判定する指標の一つとして利用されているのが、BMI（Body Mass Index）です。もっとも病気にかかりにくい標準体重をBMI22とする、日本肥満学会による判定基準がよく使われています。</p>
+          <div class="inner bmi_inner">
+            <div class="form_left">
+              <div class="form_group">
+                <label for="height">身長(cm)</label>
+                <input id="height-input" type="number" class="form-control" value="">
+              </div>
+              <div class="form_group">
+                <label for="weight">体重(kg)</label>
+                <input id="weight-input" type="number" class="form-control" value="">
+              </div>
+              <button id="bmi_btn" type="button" class="btn btn-primary">測定
+              </button>
+            </div>
+            <div class="card form_right">
+              <div class="card-header">
+                あなたのBMIは
+              </div>
+              <div class="card-body">
+                <div id="bmi_result" class="display-4"></div>
+              </div>
+            </div>
+          </div>
+          <div class="bmi_desc">
+            <table class="bmi_table">
+              <tr>
+                <th>MBI</th>
+                <td>18.5未満</td>
+                <td>18.5-25未満</td>
+                <td>25-30未満</td>
+                <td>30-35未満</td>
+                <td>35-40未満</td>
+                <td>40以上</td>
+              </tr>
+              <tr>
+                <th>肥満度判定</th>
+                <td>低体重（痩せ型）</td>
+                <td>普通体重</td>
+                <td>肥満（１度）</td>
+                <td>肥満（２度）</td>
+                <td>肥満（３度）</td>
+                <td>肥満（４度）</td>
+              </tr>
+            </table>
+          </div>
+        </section>
+        <section class="tab__content" id="tab__todo">
+          <h3>世界のちょっと気になるデータ2020年版</h3>
+          <div class="inner">
+            <div id="chartContainer1" style="height: 300px; width: 100%;"></div><br>
+            <div id="chartContainer2" style="height: 300px; width: 100%;"></div><br>
+            <div class="lang-chart">
+              <div id="chartContainer3" style="height: 300px; width: 48%;"></div>
+              <div id="chartContainer4" style="height: 300px; width: 48%;"></div>
+            </div>
+          </div>
+        </section>
+      </section>  
+      
+      <!-- カルーセルセクション -->
+      <div>
+
+        <h2 class="carousel">"Music festivals make us feel connected to our higher spirits which is why people gather altogether to get a singular experience. "</h2>
+        <p>世界のフェステバル画像をひたすら漁っています。海外のフェスは一度経験してしまうと後には戻れません。時間とお金と命が続く限り、ドキドキワクワクに時間を使いたい！</p>
+        <section id="carousel">
+          <div class="carousel__main"><img id="carousel__main"></div>
+          <div id="carousel__prev" class="carousel__prev"><i class="fas fa-angle-left fa-5x"></i></div>
+          <div id="carousel__next" class="carousel__next"><i class="fas fa-angle-right fa-5x"></i></div>
+          <ul class="carousel__thumbnails"></ul>
+        </section>
+      </div>
+
+
+    </main>
+    <aside>
+      <h3>programmer</h3>
+      <img src="img/selfie.png" alt="selfie" class="selfie">
+      <h4>UA</h4>
+      <p>輸入業を生業に、Javascriptを極めるべく独学でプログラミングを攻略中。初心者脱出の壁が思ったより高くて苦戦しているところ。
+      </p>
+      <!-- <a href="./form/form.html">CONTANT</a><br><br> -->
+      <div class="skills">
+        <h3>SKILLS</h3>
+        <h5>HTML/CSS</h5>
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <h5>Javascript</h5>
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <h5>PHP/Node.js</h5>
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <h5>Wordpress</h5>
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <h5>Ai/Ps</h5>
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+      </div>
+　　　 <div id="api">
+        <h3>今日のわんこ</h3>
+        <p>APIを使った今日のわんこです。リロードすると画像が変わります。
+        </p>
+      </div>
+    </aside>
+  </div>
+
+
+  <script src="index.js"></script>
+</body>
+</html>

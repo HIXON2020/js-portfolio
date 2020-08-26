@@ -1,0 +1,432 @@
+$pointBlue:  #0069d9;
+
+body{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+.container{
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 10px 0;
+  display: flex;
+}
+
+main{
+  width: 75%;
+  margin: 0 40px 0 20px;
+}
+
+aside{
+  width: 25%;
+  margin: 0 20px;
+  padding: 1em;
+  background-color: rgb(230, 253, 246);
+  & .selfie{
+    width: 80%;
+    display: block;
+    margin: 0 auto 20px;
+  }
+  & img{
+    width: 100%;
+  }
+  & h3{
+    margin-top: 20px;
+    font-size: 1.4em;
+  }
+  & h4{
+    text-align: center;
+  }
+  & h5{
+    font-size: 1em;
+  }
+  & p{
+    font-size: 0.9em;
+  }
+  & .progress{
+    margin-bottom: 20px;
+    & .progress-bar{
+      background: cornflowerblue;
+    }
+  }
+}
+
+h1{
+  font-family: 'Impact',sans-serif;
+  text-align: center;
+  margin: 50px 0;
+  font-size: 2.5em;
+}
+h2{
+  margin: 20px 0 50px;
+}
+h3{
+  text-align: center;
+  position: relative;
+  margin-bottom: 40px;
+}
+h3::before{
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -15px;
+  display: inline-block;
+  width: 50px;
+  height: 5px;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  background-color: rgb(173, 173, 173);
+  border-radius: 2px;
+}
+dt,dd{
+  font-size: 0.9em;
+}
+.form-group{
+  margin-bottom: 0;
+}
+// タブセクション====================================
+.tab {
+  font-size:14px;
+  margin: 20px auto;
+  width: 100%;
+  &__label {
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; 
+    & li{
+      width: 16.666667%;
+    }
+    & li a{
+      display: inline-block;
+      width: 100%;
+      text-align: center;
+      padding: 8px 0;
+      color: #333;
+      text-decoration: none;
+      border-radius: 10px 10px 0 0;
+      &.active{
+        background: #E6F0FF;
+      }
+      &:not(.active):hover{
+        opacity: 0.5;
+        transition: 0.4s;    
+      }
+      & span{
+        font-size: 0.8em;
+      }
+    }
+  }
+  &__content{
+    display: none;
+    &.active{
+      background: #E6F0FF;
+      font-size:16px;
+      min-height: 150px;
+      padding: 40px 20px;
+      display: block;  
+    }
+  }
+}
+
+// タブのインナー
+
+// WEIGTH----------------------------
+.weight_inner{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  & .weight_input{
+    width: 50%;
+  }
+  & .fa-angle-double-right{
+    font-size: 2rem;
+  }
+  & .fa-angle-double-right:hover{
+    color: #0069d9;
+    transition: 0.3s;
+    cursor: pointer;
+  }
+}
+
+// LENGTH----------------------------
+#length_form{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  & .list-group{
+    text-align: right;
+  }
+}
+#form1,#form2{
+  width: 45%;
+}
+.card1,.card2{
+  width: 100%;
+  margin: 20px 0;
+  & input{
+    width: 50%;
+    margin: 0 1rem;
+  }
+  & .card-header{
+    font-weight: bold;
+  }
+}
+// .itoc_btn{
+//   text-align: center;
+// }
+
+// CALENDER--------------------------
+.era{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  & .seireki{
+    width: 40%;
+  }
+  & #ymd{
+    width: 10%;
+  }
+  & .wareki{
+    width: 40%;
+  }
+}
+.era-table{
+  border-collapse: collapse;
+  margin: 0 auto;
+  background-color: #fff;
+  & th,td{
+    border: 1px solid #666;
+    padding: 0 20px;
+    text-align: center;
+  }
+  & th{
+    background-color: rgb(233, 236, 239);
+  }
+}
+.timer{
+  width: 80%;
+  margin: 40px auto 20px;
+  text-align: center;
+  & .timer-header{
+    background-color: rgb(245, 232, 57);
+    & h4{
+      margin-bottom: 0;
+    }
+  }
+  & .timer-body{
+    padding: 10px;
+  }
+  & #expo{
+    font-size: 2.5em;
+    padding-right: .5em;
+    color: $pointBlue;
+  }
+  & .my-timer{
+    margin-top: 30px;
+    background: coral;
+    & h4{
+      margin-bottom: 0;
+    }
+    & #my-timer-result{
+      font-size: 1.2em;
+    }
+  }
+  & .my-timer-date{
+    width: 10%;
+  }
+}
+// KEY CODE--------------------------
+.code2{
+  justify-content: center;
+  padding: 20px 0;
+  & span{
+    cursor: pointer;
+  }
+  & span:hover{
+    background-color: rgb(187, 186, 186);
+    transition: all .3s;
+  }
+  & .fa-angle-double-right{
+    font-size: 2rem;
+    padding: 0 10px 0 20px  ;
+  }
+}
+// BMI-------------------------------
+.bmi_inner{
+  display: flex;
+  justify-content: space-around;
+  padding: 30px 0;
+  text-align: center;
+  & .form_left,.form_right{
+    width: 40%;
+    & #bmi_btn{
+      width: 50%;
+      margin-top: 20px;
+    }
+  }
+}
+.bmi_table{
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 1px solid grey;
+  margin-top: 30px;
+  & th,td{
+    font-size: 0.8em;
+    text-align: center;
+    padding: 5px 0;
+    border: 1px solid grey;
+  }
+}
+// CHART------------------------------
+.lang-chart{
+  display: flex;
+  justify-content: space-between;
+}
+
+// カルーセルセクション=================================
+.carousel {
+  width: 100%; //840
+  // height: 500px;
+  margin: 100px auto 50px;
+}
+#carousel{
+  position: relative;
+  padding-top: 40px;
+}
+
+.carousel__main {
+  width: 70%; //640
+  // height: 300px;
+  margin: 0 auto;
+  border: 5px solid rgb(177, 141, 190);
+  padding: 10px;
+  cursor: pointer;
+}
+.carousel__main img{
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+.carousel__main > .active {
+  -webkit-animation: fadeImg 0.8s;
+          animation: fadeImg 0.8s;
+}
+
+.carousel__prev {
+  position: absolute;
+  top: 160px;
+  left: 20px;
+  cursor: pointer;
+  color: lightgray;
+}
+
+.carousel__prev:hover {
+  -webkit-transition-duration: .2s;
+          transition-duration: .2s;
+  -webkit-transform: translateX(-10px);
+          transform: translateX(-10px);
+}
+
+.carousel__next {
+  position: absolute;
+  top: 160px;
+  right: 20px;
+  cursor: pointer;
+  color: lightgray;
+}
+
+.carousel__next:hover {
+  -webkit-transition-duration: .2s;
+          transition-duration: .2s;
+  -webkit-transform: translateX(10px);
+          transform: translateX(10px);
+}
+
+.carousel__thumbnails {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.carousel__thumbnails li {
+  cursor: pointer;
+  opacity: 0.4;
+}
+
+.carousel__thumbnails li:hover {
+  opacity: 1;
+}
+
+.carousel__thumbnails li.current {
+  opacity: 1;
+}
+
+.carousel__thumbnails img {
+  width: 75px;
+  height: 45px;
+  object-fit: cover;
+}
+
+@-webkit-keyframes fadeImg {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeImg {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width:560px){
+  .container{
+    display: block;
+    width: 100%;
+  }
+  main{
+    width: 94%;
+    margin: 0 auto;
+    & #length_form{
+      display: block;
+    }
+    & #form1,#form2{
+      width: 100%;
+    }
+    & .weight_output{
+      width: 40%;
+    }
+    & .carousel__main{
+      width: 100%;
+    }
+    & .carousel__thumbnails img{
+      width: 50px;
+      height: 30px;
+    }
+  }
+  aside{
+    width: 100%;
+    margin: 10px 0;
+    & .selfie{
+      width: 60%;
+    }
+  }
+}

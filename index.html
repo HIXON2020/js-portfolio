@@ -11,7 +11,7 @@
   <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
 　<script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/about.css">
+  <link rel="stylesheet" href="css/portfolio.css">
 </head>
 <body>
   <h1>MY UTILITY APP</h1>
@@ -21,15 +21,15 @@
       <p>たまに必要になる換算や計算を、JavaScriptやライブラリを使ってまとめてみました。</p><br>
       <section class="tab">
         <ul class="tab__label">
-          <li><a href="#"  data-id="tab__length" class="active">LENGTH<br><span>長さ</span></a></li>
+          <li><a href="#"  data-id="tab__length" >LENGTH<br><span>長さ</span></a></li>
           <li><a href="#" data-id="tab__weight">WIGHT<br><span>重量</span></a></li>
-          <li><a href="#" data-id="tab__calender">TIME<br><span>年号＆タイマー</span></a></li>
-          <li><a href="#" data-id="tab__keycode"> CODE<br><span>16進数</span></a></li>
-          <li><a href="#" data-id="tab__bmi">BMI<br><span>肥満度チェック</span></a></li>
-          <li><a href="#" data-id="tab__todo" >CHART<br><span>統計</span></a></li>
+          <li><a href="#" data-id="tab__calender">TIME<br><span>時間</span></a></li>
+          <li><a href="#" data-id="tab__keycode"> CODE<br><span>進数</span></a></li>
+          <li><a href="#" data-id="tab__bmi">BMI<br><span>肥満度</span></a></li>
+          <li><a href="#" data-id="tab__todo" class="active">CHART<br><span>統計</span></a></li>
         </ul>
         <!-- LENGTHセクション -->
-        <section class="tab__content active" id="tab__length">
+        <section class="tab__content " id="tab__length">
           <h3>長さ・距離　換算App</h3>
           <p>日常によく使う単位のみの変換アプリです。</p>
           <div class="inner" id="length_form">
@@ -271,7 +271,7 @@
               </tr>
               <tr>
                 <th>肥満度判定</th>
-                <td>低体重（痩せ型）</td>
+　              <td>低体重（痩せ型）</td>
                 <td>普通体重</td>
                 <td>肥満（１度）</td>
                 <td>肥満（２度）</td>
@@ -281,12 +281,12 @@
             </table>
           </div>
         </section>
-        <section class="tab__content" id="tab__todo">
+        <section class="tab__content active" id="tab__todo">
           <h3>世界のちょっと気になるデータ2020年版</h3>
           <div class="inner">
             <div id="chartContainer1" style="height: 300px; width: 100%;"></div><br>
             <div id="chartContainer2" style="height: 300px; width: 100%;"></div><br>
-            <div class="lang-chart">
+            <div class="lang-chart" style="width: 100%">
               <div id="chartContainer3" style="height: 300px; width: 48%;"></div>
               <div id="chartContainer4" style="height: 300px; width: 48%;"></div>
             </div>
